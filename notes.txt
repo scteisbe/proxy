@@ -1,0 +1,90 @@
+http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+
+http://scte.staging.coursestage.com/pluginfile.php/1871/mod_resource/content/7/Module%2001a%20-%20IPv6%20Motivation.pdf
+
+http://scte.staging.coursestage.com/course/view.php?id=115
+
+devtool proxy.js --watch --save-live-edit
+
+
+
+
+GET http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1 HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Accept-Language: en-US
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Host: scte.staging.coursestage.com
+Connection: Keep-Alive
+Cookie: MoodleSession=b6cpcfjldd7q6snc9q7l932554
+
+---------------------
+
+
+POST http://scte.staging.coursestage.com/ext/coursestage/login/index.php HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Referer: http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+Accept-Language: en-US
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip, deflate
+Content-Length: 65
+Host: scte.staging.coursestage.com
+Connection: Keep-Alive
+Pragma: no-cache
+Cookie: MoodleSession=b6cpcfjldd7q6snc9q7l932554
+
+username=roletest&password=P%40ssw0rd&remote=0&rememberusername=1
+
+*** 303 Location: http://scte.staging.coursestage.com/login/index.php?testsession=2212
+
+
+----------------------
+
+GET http://scte.staging.coursestage.com/login/index.php?testsession=2212 HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Referer: http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+Accept-Language: en-US
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Host: scte.staging.coursestage.com
+Connection: Keep-Alive
+Pragma: no-cache
+Cookie: MoodleSession=oo0vrjtipj8ut9r3g4hisc0381; MOODLEID1_=S%25E4%25A4%25F9%25B3%25D1%2509%2592
+
+*** 303 Location: http://scte.staging.coursestage.com/ext/coursestage/login/index.php?testsession=2212
+
+-----------------------
+
+GET http://scte.staging.coursestage.com/ext/coursestage/login/index.php?testsession=2212 HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Referer: http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+Accept-Language: en-US
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Host: scte.staging.coursestage.com
+Connection: Keep-Alive
+Pragma: no-cache
+Cookie: MoodleSession=oo0vrjtipj8ut9r3g4hisc0381; MOODLEID1_=S%25E4%25A4%25F9%25B3%25D1%2509%2592
+
+*** 303 Location: http://scte.staging.coursestage.com/course/view.php?id=115
+
+----------------------
+
+GET http://scte.staging.coursestage.com/course/view.php?id=115 HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Referer: http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+Accept-Language: en-US
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Host: scte.staging.coursestage.com
+Connection: Keep-Alive
+Pragma: no-cache
+Cookie: MoodleSession=oo0vrjtipj8ut9r3g4hisc0381; MOODLEID1_=S%25E4%25A4%25F9%25B3%25D1%2509%2592
+
+*** 200
+
+
+
+
+
