@@ -37,6 +37,14 @@ proxy.on('proxyRes', function (proxyRes, req, res) {
   console.log("proxyRes");
 });
 
+proxy.on('error', function (err, req, res) {
+  res.writeHead(500, {
+    'Content-Type': 'text/plain'
+  });
+
+  res.end(JSON.stringify(err));
+});
+
 if (env.SCTE_PROXY_USERNAME && env.SCTE_PROXY_PASSWORD) {
   console.log("POSTing for cookie from " + loginposturl);
   var j = request.jar();

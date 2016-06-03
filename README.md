@@ -57,3 +57,13 @@ node proxy.js
 Push it like any other Heroku app.
 
 ####Set the SP13 server to use proxy address and port.
+
+###Other notes
+```
+http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+http://scte.staging.coursestage.com
+http://scte.staging.coursestage.com/enrol/index.php?id=115
+http://scte.staging.coursestage.com/pluginfile.php/1876/mod_folder/content/0/Address_Management.pdf?forcedownload=1
+
+http://scte.staging.coursestage.com/pluginfile.php/1871/mod_resource/content/7/Module%2001a%20-%20IPv6%20Motivation.pdf
+```

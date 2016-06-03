@@ -1,8 +1,12 @@
 http://scte.staging.coursestage.com/ext/coursestage/login/index.php?nosso=1
+http://scte.staging.coursestage.com
+http://scte.staging.coursestage.com/enrol/index.php?id=115
+http://scte.staging.coursestage.com/pluginfile.php/1876/mod_folder/content/0/Address_Management.pdf?forcedownload=1
 
 http://scte.staging.coursestage.com/pluginfile.php/1871/mod_resource/content/7/Module%2001a%20-%20IPv6%20Motivation.pdf
 
-http://scte.staging.coursestage.com/course/view.php?id=115
+
+
 
 devtool proxy.js --watch --save-live-edit
 
@@ -88,3 +92,47 @@ Cookie: MoodleSession=oo0vrjtipj8ut9r3g4hisc0381; MOODLEID1_=S%25E4%25A4%25F9%25
 
 
 
+
+
+
+
+
+
+GET http://scte.staging.coursestage.com/mod/resource/view.php?id=1114&redirect=1 HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Accept-Language: en-US
+Referer: http://scte.staging.coursestage.com/course/view.php?id=115
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Host: scte.staging.coursestage.com
+Connection: Keep-Alive
+Cookie: MoodleSession=9n0phqka7un471qncade7ife33; MOODLEID1_=S%25E4%25A4%25F9%25B3%25D1%2509%2592
+
+*** 303 Location: http://scte.staging.coursestage.com/pluginfile.php/1871/mod_resource/content/7/Module%2001a%20-%20IPv6%20Motivation.pdf
+
+
+
+VS...
+
+
+
+
+
+
+
+
+GET http://scte.staging.coursestage.com/mod/resource/view.php?id=1114&redirect=1 HTTP/1.1
+Accept: text/html, application/xhtml+xml, image/jxr, */*
+Accept-Language: en-US
+Referer: http://scte.staging.coursestage.com/course/view.php?id=115
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586
+Accept-Encoding: gzip, deflate
+Host: scte.staging.coursestage.com
+Proxy-Connection: Keep-Alive
+Cookie: MoodleSession=9n0phqka7un471qncade7ife33; MOODLEID1_=S%25E4%25A4%25F9%25B3%25D1%2509%2592
+
+*** 303 location: http://scte.staging.coursestage.com/pluginfile.php/1871/mod_resource/content/7/Module%2001a%20-%20IPv6%20Motivation.pdf
+
+--------------------
+
+404
