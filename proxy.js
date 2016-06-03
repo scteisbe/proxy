@@ -50,8 +50,10 @@ if (env.SCTE_PROXY_USERNAME && env.SCTE_PROXY_PASSWORD) {
   	}
   })
 
-  console.log("listening on port 8080");
-  server.listen(8080);
+  var port = env.PORT || 8080;
+
+  server.listen(port);
+  console.log("listening on port " + port);
 } else {
   console.log ("Bad creds from environment variables...");
   console.log ("SCTE_PROXY_USERNAME: " + env.SCTE_PROXY_USERNAME);
