@@ -19,16 +19,16 @@ var server = http.createServer(function(req, res) {
 });
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
+  console.log("proxyReq");
   var proxycookies = proxyReq.getHeader("Cookie");
   // if (proxycookies) {
   if (0) {  // do something smarter here, but server doesn't like duplicate cookies
-  	proxycookies += "; " + authcookies;
+    proxycookies += "; " + authcookies;
   } else {
-  	proxycookies = authcookies;
+    proxycookies = authcookies;
   }
 
   proxyReq.setHeader('Cookie', proxycookies);
-  console.log("proxyReq");
   // console.log("outbound headers:");
   // console.log(proxyReq.getHeader("Cookie"));
 });
@@ -46,15 +46,15 @@ if (env.SCTE_PROXY_USERNAME && env.SCTE_PROXY_PASSWORD) {
     form: {username:env.SCTE_PROXY_USERNAME, password: env.SCTE_PROXY_PASSWORD, remote: '0', rememberusername: '1'}
     },
     function(err,httpResponse,body){
-  	var cookies = j.getCookies(loginposturl);
-  	if (cookies.length ==2) {
+    var cookies = j.getCookies(loginposturl);
+    if (cookies.length ==2) {
       authcookies = cookies[0].key + "=" + cookies[0].value
       authcookies += "; ";
       authcookies += cookies[1].key + "=" + cookies[1].value
       console.log("Got it. " + authcookies);
-  	} else {
+    } else {
       console.log ("Failed to get a cookie.");
-  	}
+    }
   })
 
 
