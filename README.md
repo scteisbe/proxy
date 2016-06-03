@@ -29,11 +29,18 @@ Mac:
 `export SCTE_PROXY_USERNAME=<whatever it should be>`
 `export SCTE_PROXY_PASSWORD=<whatever it should be>`
 
+Heroku (toolbelt):
+
+`heroku config:set SCTE_PROXY_USERNAME=<whatever>`
+`heroku config:set SCTE_PROXY_PASSWORD=<whatever>`
+
 ####If developing, run it like this
 `devtool proxy.js --watch --save-live-edit`
 
 ####Otherwise, run it like this
 `node proxy.js`
 
+####Heroku
+Push it like any other Heroku app.
 
-####Set the SP13 server to use proxy address and port (8080)
+####Set the SP13 server to use proxy address and port.

@@ -5,12 +5,17 @@ var http = require('http'),
 
 var authcookies = "";
 var loginposturl = 'http://scte.staging.coursestage.com/ext/coursestage/login/index.php';
+var port = env.PORT || 8081;
 var proxy = httpProxy.createProxyServer({});
 var server = http.createServer(function(req, res) {
 
   console.log(' ----- ');
   console.log('URL: ' + req.url);
-  proxy.web(req, res, { target: req.url});
+  if (req.url && req.url.charAt(0) != "/") {
+    proxy.web(req, res, { target: req.url});
+  } else {
+    res.end("Proxy server is running on port " + port);
+  }
 });
 
 proxy.on('proxyReq', function(proxyReq, req, res, options) {
@@ -23,11 +28,13 @@ proxy.on('proxyReq', function(proxyReq, req, res, options) {
   }
 
   proxyReq.setHeader('Cookie', proxycookies);
-  console.log("outbound headers:");
-  console.log(proxyReq.getHeader("Cookie"));
+  console.log("proxyReq");
+  // console.log("outbound headers:");
+  // console.log(proxyReq.getHeader("Cookie"));
 });
 
-proxy.on('proxyRes', function (proxyRes, req, res) {
+proxy.on('proxyRes', function (proxyRes, req, res) { 
+  console.log("proxyRes");
 });
 
 if (env.SCTE_PROXY_USERNAME && env.SCTE_PROXY_PASSWORD) {
@@ -50,10 +57,10 @@ if (env.SCTE_PROXY_USERNAME && env.SCTE_PROXY_PASSWORD) {
   	}
   })
 
-  var port = env.PORT || 8080;
 
   server.listen(port);
   console.log("listening on port " + port);
+  console.log(env.HOST + ":" + port);
 } else {
   console.log ("Bad creds from environment variables...");
   console.log ("SCTE_PROXY_USERNAME: " + env.SCTE_PROXY_USERNAME);
