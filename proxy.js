@@ -42,6 +42,7 @@ proxy.on('error', function (err, req, res) {
     'Content-Type': 'text/plain'
   });
 
+  console.log(JSON.stringify(err));
   res.end(JSON.stringify(err));
 });
 
