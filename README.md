@@ -16,22 +16,25 @@ Install git here https://git-scm.com/download
 `cd <YOUR_TARGET_DIRECTORY_HERE>`
 
 ####Install everything
-`npm install`
+`npm install
+npm install -g devtool`  (prepend `sudo` on Mac)
 
 ####Set the credentials for the crawler
-Windows:
+Windows Command Prompt:
 
-`set SCTE_PROXY_USERNAME=<whatever it should be>`
-`set SCTE_PROXY_PASSWORD=<whatever it should be>`
+`set SCTE_PROXY_USERNAME=<whatever it should be>
+set SCTE_PROXY_PASSWORD=<whatever it should be>`
 
-Mac:
+Windows GitBash and Mac:
 
 `export SCTE_PROXY_USERNAME=<whatever it should be>`
+
 `export SCTE_PROXY_PASSWORD=<whatever it should be>`
 
 Heroku (toolbelt):
 
 `heroku config:set SCTE_PROXY_USERNAME=<whatever>`
+
 `heroku config:set SCTE_PROXY_PASSWORD=<whatever>`
 
 ####If developing, run it like this
