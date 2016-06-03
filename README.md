@@ -33,7 +33,7 @@ Mac:
 `devtool proxy.js --watch --save-live-edit`
 
 ####Otherwise, run it like this
-`set NODE_ENV=production`
+`node proxy.js`
 
 
 ####Set the SP13 server to use proxy address and port (8080)

@@ -1,16 +1,47 @@
 {
-  "name": "openshift-cartridge-nodejs-template",
+  "name": "scte-crawl-proxy",
   "version": "1.0.1",
-  "description": "Custom Node.js cartridge for OpenShift - sample application",
-  "private": true,
-  "main": "start.js",
+  "description": "An example module to illustrate the usage of a package.json",
+  "author": "Your Name <you.name@example.org>",
+  "contributors": [{
+  "name": "Foo Bar",
+  "email": "foo.bar@example.com"
+}],
+  "bin": {
+  "module-name": "./bin/module-name"
+},
   "scripts": {
-    "start": "node --use_strict start.js"
+    "test": "vows --spec --isolate",
+    "start": "node proxy.js",
+    "predeploy": "echo Deploying...",
+    "postdeploy": "echo Deploy complete.",
+    "prepublish": "coffee --bare --compile --output lib/foo src/foo/*.coffee"
   },
-  "author": "Ionut-Cristian Florescu <ionut.florescu@gmail.com>",
-  "license": "ISC",
+  "main": "proxy.js",
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/scteisbe/proxy"
+},
+  "bugs": {
+  "url": "https://github.com/scteisbe/proxy/issues"
+},
+  "keywords": [
+  "nodejitsu",
+  "example",
+  "browsenpm"
+],
   "dependencies": {
     "http-proxy": "^1.13.3",
     "request": "^2.72.0"
-  }
+  },
+  "devDependencies": {
+  },
+  "preferGlobal": true,
+  "private": true,
+  "publishConfig": {
+  "registry": "https://your-private-hosted-npm.registry.nodejitsu.com"
+},
+  "subdomain": "foobar",
+  "analyze": true,
+  "license": "MIT"
 }
