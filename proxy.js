@@ -1,6 +1,7 @@
 var http = require('http'),
   httpProxy = require('http-proxy'),
   env = process.env,
+  envfile = require('node-env-file'),
   request = require('request');
 
 var authcookies = "";
@@ -46,32 +47,32 @@ proxy.on('error', function (err, req, res) {
   res.end(JSON.stringify(err));
 });
 
-if (env.SCTE_PROXY_USERNAME && env.SCTE_PROXY_PASSWORD) {
-  console.log("POSTing for cookie from " + loginposturl);
-  var j = request.jar();
-  request.post({
-    url: loginposturl, 
-    jar: j, 
-    form: {username:env.SCTE_PROXY_USERNAME, password: env.SCTE_PROXY_PASSWORD, remote: '0', rememberusername: '1'}
-    },
-    function(err,httpResponse,body){
-    var cookies = j.getCookies(loginposturl);
-    if (cookies.length ==2) {
-      authcookies = cookies[0].key + "=" + cookies[0].value
-      authcookies += "; ";
-      authcookies += cookies[1].key + "=" + cookies[1].value
-      console.log("Got it. " + authcookies);
-    } else {
-      console.log ("Failed to get a cookie.");
-    }
-  })
+envfile(__dirname + '/.env', {raise: false});
 
+console.log ("Using credentials from environment variables or .env file...");
+console.log ("SCTE_PROXY_USERNAME: " + env.SCTE_PROXY_USERNAME);
+console.log ("SCTE_PROXY_PASSWORD: " + env.SCTE_PROXY_PASSWORD);
+console.log ();
+console.log("POSTing for cookie from " + loginposturl);
+var j = request.jar();
+request.post({
+  url: loginposturl, 
+  jar: j, 
+  form: {username:env.SCTE_PROXY_USERNAME, password: env.SCTE_PROXY_PASSWORD, remote: '0', rememberusername: '1'}
+  },
+  function(err,httpResponse,body){
+  var cookies = j.getCookies(loginposturl);
+  if (cookies.length ==2) {
+    authcookies = cookies[0].key + "=" + cookies[0].value
+    authcookies += "; ";
+    authcookies += cookies[1].key + "=" + cookies[1].value
+    console.log("Result: " + authcookies);
+    console.log();
+    server.listen(port);
+    console.log("Proxy is now listening on port " + port);
+  } else {
+    console.log ("Fatal: failed to get a cookie.");
+    process.exit(1);
+  }
+})
 
-  server.listen(port);
-  console.log("listening on port " + port);
-  console.log(env.HOST + ":" + port);
-} else {
-  console.log ("Bad creds from environment variables...");
-  console.log ("SCTE_PROXY_USERNAME: " + env.SCTE_PROXY_USERNAME);
-  console.log ("SCTE_PROXY_PASSWORD: " + env.SCTE_PROXY_PASSWORD);
-}
