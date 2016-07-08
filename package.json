@@ -4,6 +4,9 @@
   "description": "An example module to illustrate the usage of a package.json",
   "author": "Your Name <you.name@example.org>",
   "main": "proxy.js",
+  "scripts": {
+      "start": "proxy.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/scteisbe/proxy"
