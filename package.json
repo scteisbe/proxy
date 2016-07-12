@@ -5,7 +5,7 @@
   "author": "Your Name <you.name@example.org>",
   "main": "proxy.js",
   "scripts": {
-      "start": "node proxy.js"
+    "start": "node proxy.js"
   },
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "http-proxy": "^1.13.3",
+    "node-env-file": "^0.1.8",
     "request": "^2.72.0"
   },
   "license": "MIT"
